@@ -30,7 +30,7 @@ pip show scrapy
 ```
 scrapy startproject <folderName/ProjectName>
 ```
-![First Project](/images/firstProject.png)
+![First Project](./images/firstProject.png)
 
 - After this a ```tutorial``` folder is created having subfolder with same name as shown <br>
 ![tutorial file structure](./images/firstProject-file-structure.png)

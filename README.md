@@ -28,7 +28,7 @@ pip show scrapy
 
 - Lets create our first project directory
 ```
-scrapy startproject <folderName>
+scrapy startproject <folderName/ProjectName>
 ```
 ![First Project](./images/firstProject.png)
 
@@ -40,14 +40,14 @@ Note:
 2. ```__init__.py``` : This file is projects python module
 3. ```items.py``` : This file is projects item defination file 
 4. ```middlewares.py``` : It is the project middleware file
-5. Similarly, we have ```pipelines.py``` & ```settings.py``` files
+5. Similarly, we have ```pipelines.py``` & ```settings.py``` files as well.
 
-6. Inside, ```spiders``` folder there is ```__init__.py``` file where later on we will put our spiders
+6. Inside, ```spiders``` folder there is ```__init__.py``` file where later on we will put our spiders!
 
 ## Create Spiders
 - Lets create a spider with file name  ```spider1.py``` and write some code i.e subclass and give unique name to that spider and create some functions viz. start_requests and parse
 
-- After this head over to tutorial directory using ```cd``` and crawl our spider as shown
+- After this head over to ```tutorial``` directory using ```cd``` and crawl our spider as shown(i.e bring our created spider in action)
 ```
 cd .\tutorial\
 scrapy crawl quotes
@@ -78,14 +78,34 @@ response.css('title::text').getall()
 ![get only first title text](./images/get-only-first-titleText.png)
 
 - We can use xpath as well instead of css used above. xpath expressions are very powerfull and foundation of scrapy selectors. Also css selector gets converted to xpath selector under the hood.
+![expath extract title](./images/expath-extract-title.png)
 
-## to extract all quotes using our spider named ```quotes```
+#### Other scrapy shell operations for practice
+- devtools to analyze which text to select<br>
+![extract first code](./images/extract-quote-css-1.png)
+- scrapy shell code <br>
+![scrapy code](./images/quote-extraction-using-css.png)
+<br>
+
+- Here we have applied the css in a way we used to do in css file as selector(to target particular element)
+![extract quote using scrapy with css](/images/extract-quote-css-2.png) 
+
+- scraping will become much easier if we know xpath.
+
+## To extract all quotes using our spider named ```quotes```
+
+- First run our spider using the command as shown below
+```
+scrapy crawl quotes
+```
+
+- Then we will extract all relevent data and store it in ```quotes.json``` file as output
 ```
 scrapy crawl quotes -o quotes.json
 ```
 This will create quotes.json file containing all quotes, authors, tags for all quotes
 
-#### Instead of json we could have a csv file as well
+- Instead of json we could have a csv file name as well with output as ```quotes.csv``` file
 ```
 scrapy crawl quotes -o quotes.csv
 ```
